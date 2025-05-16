@@ -61,7 +61,7 @@ export default function Home() {
               {/* Right Image with Glow */}
               <div
                 ref={imageContainerRef}
-                className="relative mx-auto aspect-square overflow-hidden rounded-xl sm:w-full lg:order-last"
+                className="relative mx-auto aspect-square overflow-hidden rounded-xl sm:w-full lg:order-last bg-[#0c0c0c]"
               >
                 {/* Glow */}
                 <div
@@ -74,11 +74,10 @@ export default function Home() {
                 {/* Image */}
                 <Image
                   alt="Sangeeth P Girish"
+                  src="/images/profile.png"
+                  fill
+                  style={{ objectFit: "contain" }}
                   className="z-10 relative"
-                  src="/profile.png"
-                  width={600}
-                  height={600}
-                  objectFit="contain"
                 />
               </div>
             </div>
