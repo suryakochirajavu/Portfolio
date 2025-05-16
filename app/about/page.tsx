@@ -7,8 +7,8 @@ import { HobbyCharacter } from "@/components/animated-characters/hobby-character
 import { Portrait3DModel } from "@/components/portrait-3d-model"
 
 export default function AboutPage() {
-  return (
-    <div className="flex min-h-screen flex-col bg-background text-foreground relative">
+  return <div className="p-8 text-2xl">This is the About page</div>
+}
       <Header />
       <main className="flex-1">
         {/* 3D Portrait Model - positioned fixed */}
