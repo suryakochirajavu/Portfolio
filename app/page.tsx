@@ -1,11 +1,32 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
+import { useEffect, useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { WorkSection } from "./work-section"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
 
 export default function Home() {
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
+  const imageContainerRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!imageContainerRef.current) return
+      const rect = imageContainerRef.current.getBoundingClientRect()
+      setMousePos({
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+      })
+    }
+
+    const el = imageContainerRef.current
+    el?.addEventListener("mousemove", handleMouseMove)
+    return () => el?.removeEventListener("mousemove", handleMouseMove)
+  }, [])
+
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
       <Header />
@@ -36,13 +57,28 @@ export default function Home() {
                   </Button>
                 </div>
               </div>
-              <div className="mx-auto aspect-square overflow-hidden rounded-xl object-cover sm:w-full lg:order-last">
+
+              {/* Right Image with Glow */}
+              <div
+                ref={imageContainerRef}
+                className="relative mx-auto aspect-square overflow-hidden rounded-xl sm:w-full lg:order-last"
+              >
+                {/* Glow */}
+                <div
+                  className="pointer-events-none absolute w-72 h-72 rounded-full bg-purple-500 opacity-30 blur-2xl transition-transform duration-200 ease-out"
+                  style={{
+                    left: mousePos.x - 144,
+                    top: mousePos.y - 144,
+                  }}
+                />
+                {/* Image */}
                 <Image
-                  alt="Creator Portrait"
-                  className="aspect-square object-cover"
-                  height={600}
-                  src="/placeholder.svg?height=600&width=600"
+                  alt="Sangeeth P Girish"
+                  className="z-10 relative"
+                  src="/profile.png"
                   width={600}
+                  height={600}
+                  objectFit="contain"
                 />
               </div>
             </div>
