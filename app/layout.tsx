@@ -11,7 +11,10 @@ export const metadata: Metadata = {
   title: "Sangeeth P Girish - Digital Artist & Creative Director",
   description:
     "Portfolio of Sangeeth P Girish, a digital artist and creative director specializing in digital art, motion graphics, and brand identity.",
-    generator: 'v0.dev'
+  generator: 'v0.dev',
+  icons: {
+    icon: "/favicon.png",
+  },
 }
 
 export default function RootLayout({
@@ -21,6 +24,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/favicon.png" type="image/png" />
+      </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <EnhancedLayout>{children}</EnhancedLayout>
