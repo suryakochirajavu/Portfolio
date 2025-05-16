@@ -3,7 +3,6 @@
 import { type ReactNode, useEffect, useState } from "react"
 import { MouseGlow } from "@/components/mouse-glow"
 import { ThemeDebug } from "@/components/theme-debug"
-// Import the TelegramChat component
 import { TelegramChat } from "@/components/telegram-chat"
 
 interface EnhancedLayoutProps {
@@ -18,13 +17,10 @@ export function EnhancedLayout({ children }: EnhancedLayoutProps) {
   useEffect(() => {
     setIsMounted(true)
 
-    // Check if device is touch-based
     const isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0
     setIsTouchDevice(isTouch)
 
-    // Add keyboard shortcut for debug panel
     const handleKeyDown = (e: KeyboardEvent) => {
-      // Ctrl+Shift+D to toggle debug panel
       if (e.ctrlKey && e.shiftKey && e.key === "D") {
         setShowDebug((prev) => !prev)
       }
