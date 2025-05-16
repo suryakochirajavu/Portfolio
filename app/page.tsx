@@ -10,6 +10,7 @@ import { Footer } from "@/components/layout/footer"
 
 export default function Home() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
+  const [isHovering, setIsHovering] = useState(false)
   const imageContainerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -58,26 +59,32 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Right Image with Glow */}
+              {/* Image with glow */}
               <div
                 ref={imageContainerRef}
-                className="relative mx-auto aspect-square overflow-hidden rounded-xl sm:w-full lg:order-last bg-[#0c0c0c]"
+                onMouseEnter={() => setIsHovering(true)}
+                onMouseLeave={() => setIsHovering(false)}
+                className="relative mx-auto aspect-square sm:w-full lg:order-last"
               >
-                {/* Glow */}
-                <div
-                  className="pointer-events-none absolute w-72 h-72 rounded-full bg-purple-500 opacity-30 blur-2xl transition-transform duration-200 ease-out"
-                  style={{
-                    left: mousePos.x - 144,
-                    top: mousePos.y - 144,
-                  }}
-                />
-                {/* Image */}
+                {isHovering && (
+                  <div
+                    className="absolute w-72 h-72 bg-purple-500 opacity-30 blur-3xl rounded-full pointer-events-none"
+                    style={{
+                      left: `${mousePos.x - 144}px`,
+                      top: `${mousePos.y - 144}px`,
+                      zIndex: 0,
+                    }}
+                  />
+                )}
                 <Image
                   alt="Sangeeth P Girish"
                   src="/images/profile.png"
                   fill
-                  style={{ objectFit: "contain" }}
-                  className="z-10 relative"
+                  className="relative z-10 object-contain"
+                  style={{
+                    mixBlendMode: "normal",
+                    pointerEvents: "none",
+                  }}
                 />
               </div>
             </div>
