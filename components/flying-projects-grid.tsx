@@ -113,7 +113,6 @@ export function FlyingProjectsGrid({ projects, resetMode, onResetComplete }: Fly
                     <FlyingProjectTile
                       project={project}
                       index={index}
-                      totalProjects={projects.length}
                       resetMode={resetMode}
                     />
                   </div>
