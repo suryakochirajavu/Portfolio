@@ -4,8 +4,8 @@ import { ThemeToggle } from "@/components/theme-toggle"
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full glass-surface border-b transition-colors duration-300">
-      <div className="container flex h-16 items-center justify-between">
+    <header className="sticky top-0 z-50 w-full glass-surface backdrop-blur-xl border-b transition-colors duration-300">
+      <div className="container flex h-20 items-center justify-between">
         <Link href="/" className="flex items-center gap-2 text-lg font-semibold">
           <span>Sangeeth P Girish</span>
         </Link>
