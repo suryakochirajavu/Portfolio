@@ -77,7 +77,7 @@ export function FlyingProjectTile({ project, index, resetMode }: FlyingProjectTi
   return (
     <div ref={ref} className="absolute w-full h-full">
       <div
-        className={`absolute transition-all duration-1000 ease-out w-full h-full ${blast ? "blast" : ""}`}
+        className={`absolute transition-all duration-1000 ease-out w-full h-full ${blast ? "tile-blast" : ""}`}
         style={{
           transform: `translateY(${position.y}px) scale(${position.scale})`,
           opacity: position.opacity,
