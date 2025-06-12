@@ -17,7 +17,7 @@ export function ThemeToggleWithTooltip() {
 
   if (!mounted) {
     return (
-      <Button variant="outline" size="icon" className="w-10 h-10 rounded-full">
+      <Button variant="glass" size="icon" className="w-10 h-10 rounded-full">
         <span className="sr-only">Toggle theme</span>
         <div className="h-5 w-5 bg-gray-400 rounded-full" />
       </Button>
@@ -29,7 +29,7 @@ export function ThemeToggleWithTooltip() {
       <Tooltip>
         <TooltipTrigger asChild>
           <Button
-            variant="outline"
+            variant="glass"
             size="icon"
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             className="w-10 h-10 rounded-full relative"

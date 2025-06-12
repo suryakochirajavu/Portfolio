@@ -50,10 +50,10 @@ export default function Home() {
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Button asChild>
+                  <Button variant="glass" asChild>
                     <Link href="/portfolio">View My Work</Link>
                   </Button>
-                  <Button variant="outline" asChild>
+                  <Button variant="glass" asChild>
                     <Link href="/contact">Contact Me</Link>
                   </Button>
                 </div>
@@ -80,7 +80,7 @@ export default function Home() {
                   alt="Sangeeth P Girish"
                   src="/images/profile.png"
                   fill
-                  className="relative z-10 object-contain"
+                  className="relative z-10 object-contain edge-fade"
                   style={{
                     mixBlendMode: "normal",
                     pointerEvents: "none",

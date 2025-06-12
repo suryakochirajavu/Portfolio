@@ -94,7 +94,9 @@ export function HobbyCharacter() {
 
           {/* Eyes */}
           <circle
-            ref={(el) => el && (eyesRef.current[0] = el)}
+            ref={(el) => {
+              if (el) eyesRef.current[0] = el;
+            }}
             data-base-x="-5"
             data-base-y="-17"
             cx="-5"
@@ -103,7 +105,9 @@ export function HobbyCharacter() {
             fill="currentColor"
           />
           <circle
-            ref={(el) => el && (eyesRef.current[1] = el)}
+            ref={(el) => {
+              if (el) eyesRef.current[1] = el;
+            }}
             data-base-x="5"
             data-base-y="-17"
             cx="5"

@@ -16,7 +16,7 @@ export function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <Button variant="outline" size="sm" className="gap-2">
+      <Button variant="glass" size="sm" className="gap-2">
         <div className="h-4 w-4" />
         <span>Theme</span>
       </Button>
@@ -26,7 +26,7 @@ export function ThemeToggle() {
   const isDark = resolvedTheme === "dark"
 
   return (
-    <Button variant="outline" size="sm" onClick={() => setTheme(isDark ? "light" : "dark")} className="gap-2">
+    <Button variant="glass" size="sm" onClick={() => setTheme(isDark ? "light" : "dark")} className="gap-2">
       {isDark ? (
         <>
           <Sun className="h-4 w-4 text-yellow-500" />

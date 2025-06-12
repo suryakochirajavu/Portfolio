@@ -54,7 +54,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                 </p>
               </div>
               <div className="mt-8">
-                <Button asChild>
+                <Button variant="glass" asChild>
                   <Link href="/portfolio">View More Projects</Link>
                 </Button>
               </div>

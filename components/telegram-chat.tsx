@@ -262,7 +262,7 @@ export function TelegramChat() {
                 className="resize-none"
                 rows={2}
               />
-              <Button
+              <Button variant="glass"
                 onClick={handleSendMessage}
                 disabled={!newMessage.trim() || isSending}
                 size="icon"
