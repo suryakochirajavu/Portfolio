@@ -1,5 +1,4 @@
 import Link from "next/link"
-import Image from "next/image"
 import { ArrowLeft } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Header } from "@/components/layout/header"
@@ -23,14 +22,8 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                 </Link>
               </div>
               <h1 className="text-3xl font-bold mb-4">Project: {params.slug}</h1>
-              <div className="aspect-video w-full overflow-hidden rounded-lg mb-8">
-                <Image
-                  src="/placeholder.svg?height=600&width=1200"
-                  alt="Project Cover"
-                  width={1200}
-                  height={600}
-                  className="object-cover w-full"
-                />
+              <div className="beveled-glass aspect-video w-full mb-8 flex items-center justify-center text-xl font-semibold">
+                Project Preview
               </div>
               <div className="prose prose-neutral dark:prose-invert max-w-none">
                 <p className="text-muted-foreground">

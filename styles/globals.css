@@ -97,6 +97,24 @@
     animation-name: glass-blink-dark;
   }
 
+  .beveled-glass {
+    @apply glass-surface rounded-xl border border-white/40 dark:border-white/10;
+    box-shadow:
+      inset 2px 2px 4px rgba(255, 255, 255, 0.4),
+      inset -2px -2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .hover-glow:hover {
+    box-shadow:
+      inset 2px 2px 4px rgba(255, 255, 255, 0.4),
+      inset -2px -2px 4px rgba(0, 0, 0, 0.2),
+      0 0 24px rgba(100, 150, 255, 0.5);
+  }
+
+  .header-glass {
+    @apply backdrop-blur-lg bg-white/50 dark:bg-white/15 border-b border-white/60 dark:border-white/20 shadow-md;
+  }
+
   .edge-fade {
     -webkit-mask-image: radial-gradient(ellipse 70% 70% at center, black 60%, transparent 100%);
             mask-image: radial-gradient(ellipse 70% 70% at center, black 60%, transparent 100%);

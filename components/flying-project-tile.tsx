@@ -84,7 +84,7 @@ export function FlyingProjectTile({ project, index, resetMode }: FlyingProjectTi
         }}
         onClick={handleClick}
       >
-        <div className="glass-surface rounded-lg h-full flex flex-col items-center justify-center text-center cursor-pointer select-none">
+        <div className="beveled-glass hover-glow h-full flex flex-col items-center justify-center text-center cursor-pointer select-none">
           <h3 className="font-semibold text-xl mb-1">{project.title}</h3>
           <p className="text-sm text-muted-foreground">
             {project.category} • {project.year}

@@ -11,7 +11,6 @@ import { TorchCursor } from "@/components/torch-cursor"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft } from "lucide-react"
 import { motion } from "framer-motion"
-import Image from "next/image"
 import Link from "next/link"
 
 // Sample project data by category
@@ -224,16 +223,11 @@ export default function CategoryPage({ params }: { params: { category: string } 
                 {projects.map((project) => (
                   <motion.div
                     key={project.id}
-                    className="bg-card border rounded-lg overflow-hidden shadow-md"
+                    className="beveled-glass hover-glow shadow-md"
                     whileHover={{ y: -8, scale: 1.02, transition: { duration: 0.2 } }}
                   >
-                    <div className="aspect-video relative">
-                      <Image
-                        src={project.image || "/placeholder.svg"}
-                        alt={project.title}
-                        fill
-                        className="object-cover"
-                      />
+                    <div className="aspect-video flex items-center justify-center rounded-t-xl">
+                      <span className="text-xl font-semibold">{project.title}</span>
                     </div>
                     <div className="p-6">
                       <h3 className="text-2xl font-semibold">{project.title}</h3>
