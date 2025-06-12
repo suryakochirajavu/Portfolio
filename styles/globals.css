@@ -92,3 +92,40 @@ const inter = Inter({ subsets: ["latin"] })
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .glass-surface {
+    @apply backdrop-blur-md bg-white/30 dark:bg-white/10 border border-white/50 dark:border-white/20;
+    animation: glass-blink-light 10s ease-in-out infinite;
+  }
+  .dark .glass-surface {
+    animation-name: glass-blink-dark;
+  }
+
+  .edge-fade {
+    -webkit-mask-image: radial-gradient(ellipse 70% 70% at center, black 60%, transparent 100%);
+            mask-image: radial-gradient(ellipse 70% 70% at center, black 60%, transparent 100%);
+  }
+}
+
+@keyframes glass-blink-light {
+  0%, 100% { background-color: rgba(255, 255, 255, 0.3); }
+  50% { background-color: rgba(255, 255, 255, 0.35); }
+}
+
+@keyframes glass-blink-dark {
+  0%, 100% { background-color: rgba(255, 255, 255, 0.1); }
+  50% { background-color: rgba(255, 255, 255, 0.15); }
+}
+
+@keyframes tile-blast {
+  to {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.blast {
+  animation: tile-blast 0.3s forwards;
+}
+

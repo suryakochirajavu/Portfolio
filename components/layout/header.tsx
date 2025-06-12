@@ -4,7 +4,7 @@ import { ThemeToggle } from "@/components/theme-toggle"
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-gray-800 bg-white/95 dark:bg-black/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-black/60 transition-colors duration-300">
+    <header className="sticky top-0 z-50 w-full glass-surface border-b transition-colors duration-300">
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2 text-lg font-semibold">
           <span>Sangeeth P Girish</span>
@@ -25,7 +25,7 @@ export function Header() {
             </Link>
           </nav>
           <ThemeToggle />
-          <Button variant="outline" size="icon" className="md:hidden">
+          <Button variant="glass" size="icon" className="md:hidden">
             <span className="sr-only">Toggle menu</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"

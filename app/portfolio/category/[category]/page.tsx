@@ -194,7 +194,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
         <section className="w-full py-12 md:py-24 min-h-[calc(100vh-200px)]">
           <div className="container px-4 md:px-6 pb-32">
             <div className="mb-8 flex items-center justify-between">
-              <Button variant="ghost" size="sm" className="flex items-center gap-2" onClick={handleBackClick}>
+              <Button variant="glass" size="sm" className="flex items-center gap-2" onClick={handleBackClick}>
                 <ArrowLeft className="h-4 w-4" />
                 <span>Back to Portfolio</span>
               </Button>
@@ -259,7 +259,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
               <div className="mt-20 pb-16">
                 <div className="flex justify-between">
                   {prevCategory && (
-                    <Button variant="outline" onClick={() => router.push(`/portfolio/category/${prevCategory}`)}>
+                    <Button variant="glass" onClick={() => router.push(`/portfolio/category/${prevCategory}`)}>
                       ← {categoryNames[prevCategory as keyof typeof categoryNames]}
                     </Button>
                   )}
@@ -267,7 +267,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
                   <div className="flex-1" />
 
                   {nextCategory && (
-                    <Button variant="outline" onClick={() => router.push(`/portfolio/category/${nextCategory}`)}>
+                    <Button variant="glass" onClick={() => router.push(`/portfolio/category/${nextCategory}`)}>
                       {categoryNames[nextCategory as keyof typeof categoryNames]} →
                     </Button>
                   )}

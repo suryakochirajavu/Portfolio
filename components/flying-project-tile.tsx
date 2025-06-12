@@ -1,10 +1,8 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
-import Image from "next/image"
+import { useState, useEffect } from "react"
 import { useInView } from "react-intersection-observer"
-import { useScroll } from "@/hooks/use-scroll"
-import Link from "next/link"
+import { useRouter } from "next/navigation"
 
 interface FlyingProjectTileProps {
   project: {
@@ -16,108 +14,82 @@ interface FlyingProjectTileProps {
     slug: string
   }
   index: number
-  totalProjects: number
   resetMode: boolean
 }
 
-export function FlyingProjectTile({ project, index, totalProjects, resetMode }: FlyingProjectTileProps) {
-  const { scrollDirection } = useScroll()
+export function FlyingProjectTile({ project, index, resetMode }: FlyingProjectTileProps) {
+  const router = useRouter()
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: false,
   })
 
   const [position, setPosition] = useState({
-    x: 0,
-    y: 0,
-    z: 2000,
-    scale: 0.1,
+    y: 50,
+    scale: 0.8,
     opacity: 0,
   })
-
-  const tileRef = useRef<HTMLDivElement>(null)
 
   // Calculate a unique delay based on index
   const delay = index * 0.05
 
+  const [blast, setBlast] = useState(false)
+
+  const handleClick = () => {
+    setBlast(true)
+    setTimeout(() => {
+      router.push(`/portfolio/${project.slug}`)
+    }, 300)
+  }
+
   useEffect(() => {
     if (inView) {
       const timer = setTimeout(() => {
-        if (scrollDirection === "down" && !resetMode) {
-          // Flying in animation - coming from far to near
+        if (!resetMode) {
+          // Fade and slide in
           setPosition({
-            x: 0,
             y: 0,
-            z: 0,
             scale: 1,
             opacity: 1,
           })
-        } else if (resetMode) {
-          // Reset animation - going back to distance when user clicks
+        } else {
+          // Fade and slide out when resetting
           setPosition({
-            x: 0,
-            y: 0,
-            z: 2000,
-            scale: 0.1,
+            y: 50,
+            scale: 0.8,
             opacity: 0,
           })
         }
-        // Otherwise, keep tiles in place
       }, delay * 1000)
 
       return () => clearTimeout(timer)
     } else {
       // Reset when out of view
       setPosition({
-        x: 0,
-        y: 0,
-        z: 2000,
-        scale: 0.1,
+        y: 50,
+        scale: 0.8,
         opacity: 0,
       })
     }
-  }, [inView, scrollDirection, resetMode, delay])
+  }, [inView, resetMode, delay])
 
-  // Calculate z-index based on z position for proper layering
-  const zIndex = Math.round(100 - position.z / 20)
 
   return (
-    <div
-      ref={ref}
-      className="absolute w-full h-full"
-      style={{
-        perspective: "1200px",
-        perspectiveOrigin: "center",
-      }}
-    >
+    <div ref={ref} className="absolute w-full h-full">
       <div
-        ref={tileRef}
-        className="absolute transition-all duration-1000 ease-out w-full h-full"
+        className={`absolute transition-all duration-1000 ease-out w-full h-full ${blast ? "blast" : ""}`}
         style={{
-          transform: `translate3d(${position.x}px, ${position.y}px, ${position.z}px) scale(${position.scale})`,
+          transform: `translateY(${position.y}px) scale(${position.scale})`,
           opacity: position.opacity,
-          zIndex,
         }}
+        onClick={handleClick}
       >
-        <Link href={`/portfolio/${project.slug}`} className="block h-full">
-          <div className="bg-card border rounded-lg overflow-hidden h-full shadow-md hover:shadow-xl transition-all duration-300 hover:border-primary/30">
-            <div className="aspect-[4/3] overflow-hidden relative">
-              <Image
-                src={project.image || "/placeholder.svg?height=450&width=600"}
-                alt={project.title}
-                width={600}
-                height={450}
-                className="object-cover w-full h-full"
-              />
-            </div>
-            <div className="p-6">
-              <h3 className="font-semibold text-xl mb-1">{project.title}</h3>
-              <p className="text-sm text-muted-foreground">
-                {project.category} • {project.year}
-              </p>
-            </div>
-          </div>
-        </Link>
+        <div className="glass-surface rounded-lg h-full flex flex-col items-center justify-center text-center cursor-pointer select-none">
+          <h3 className="font-semibold text-xl mb-1">{project.title}</h3>
+          <p className="text-sm text-muted-foreground">
+            {project.category} • {project.year}
+          </p>
+        </div>
       </div>
     </div>
   )
