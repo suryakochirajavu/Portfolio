@@ -100,7 +100,9 @@ export function ValuesCharacter() {
 
           {/* Eyes */}
           <circle
-            ref={(el) => el && (eyesRef.current[0] = el)}
+            ref={(el) => {
+              if (el) eyesRef.current[0] = el;
+            }}
             data-base-x="115"
             data-base-y="53"
             cx="115"
@@ -109,7 +111,9 @@ export function ValuesCharacter() {
             fill="currentColor"
           />
           <circle
-            ref={(el) => el && (eyesRef.current[1] = el)}
+            ref={(el) => {
+              if (el) eyesRef.current[1] = el;
+            }}
             data-base-x="125"
             data-base-y="53"
             cx="125"
