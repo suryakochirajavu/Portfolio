@@ -105,7 +105,9 @@ export function JourneyCharacter() {
 
           {/* Eyes */}
           <circle
-            ref={(el) => el && (eyesRef.current[0] = el)}
+            ref={(el) => {
+              if (el) eyesRef.current[0] = el;
+            }}
             data-base-x="10"
             data-base-y="-17"
             cx="10"
@@ -114,7 +116,9 @@ export function JourneyCharacter() {
             fill="currentColor"
           />
           <circle
-            ref={(el) => el && (eyesRef.current[1] = el)}
+            ref={(el) => {
+              if (el) eyesRef.current[1] = el;
+            }}
             data-base-x="20"
             data-base-y="-17"
             cx="20"
