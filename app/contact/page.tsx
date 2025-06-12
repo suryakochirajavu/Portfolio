@@ -18,13 +18,13 @@ export default function ContactPage() {
                 to discuss how we can bring your vision to life.
               </p>
               <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                <Button asChild>
+                <Button variant="glass" asChild>
                   <Link href="mailto:hello@sangeethpgirish.com">
                     <Mail className="mr-2 h-4 w-4" />
                     Email Me
                   </Link>
                 </Button>
-                <Button variant="outline" asChild>
+                <Button variant="glass" asChild>
                   <Link href="tel:+1234567890">
                     <Phone className="mr-2 h-4 w-4" />
                     Call Me
@@ -55,7 +55,7 @@ export default function ContactPage() {
                 </div>
               </div>
             </div>
-            <div className="rounded-lg border bg-card p-6 shadow-sm">
+            <div className="rounded-lg glass-surface p-6">
               <form className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
@@ -67,7 +67,7 @@ export default function ContactPage() {
                     </label>
                     <input
                       id="first-name"
-                      className="flex h-10 w-full rounded-md border bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                      className="flex h-10 w-full rounded-md glass-surface px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                       placeholder="Enter your first name"
                     />
                   </div>
@@ -80,7 +80,7 @@ export default function ContactPage() {
                     </label>
                     <input
                       id="last-name"
-                      className="flex h-10 w-full rounded-md border bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                      className="flex h-10 w-full rounded-md glass-surface px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                       placeholder="Enter your last name"
                     />
                   </div>
@@ -95,7 +95,7 @@ export default function ContactPage() {
                   <input
                     id="email"
                     type="email"
-                    className="flex h-10 w-full rounded-md border bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="flex h-10 w-full rounded-md glass-surface px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                     placeholder="Enter your email"
                   />
                 </div>
@@ -108,7 +108,7 @@ export default function ContactPage() {
                   </label>
                   <input
                     id="subject"
-                    className="flex h-10 w-full rounded-md border bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="flex h-10 w-full rounded-md glass-surface px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                     placeholder="Enter the subject"
                   />
                 </div>
@@ -121,11 +121,11 @@ export default function ContactPage() {
                   </label>
                   <textarea
                     id="message"
-                    className="flex min-h-[120px] w-full rounded-md border bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="flex min-h-[120px] w-full rounded-md glass-surface px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                     placeholder="Enter your message"
                   />
                 </div>
-                <Button type="submit" className="w-full">
+                <Button variant="glass" type="submit" className="w-full">
                   Send Message
                 </Button>
               </form>

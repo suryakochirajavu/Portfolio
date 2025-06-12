@@ -156,7 +156,7 @@ export default function PortfolioPage() {
                   {Array.from({ length: totalPages }).map((_, index) => (
                     <Button
                       key={index}
-                      variant={currentPage === index + 1 ? "default" : "outline"}
+                      variant="glass"
                       size="sm"
                       onClick={() => setCurrentPage(index + 1)}
                       className="w-8 h-8 p-0"

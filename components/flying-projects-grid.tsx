@@ -72,10 +72,10 @@ export function FlyingProjectsGrid({ projects, resetMode, onResetComplete }: Fly
 
   return (
     <div className="relative min-h-[300vh]">
-      <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
+      <div className="sticky top-0 h-screen flex items-center justify-center">
         <div className="relative w-full h-full max-w-6xl mx-auto px-4">
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="relative w-full h-full max-h-[80vh] flex items-center justify-center">
+            <div className="relative w-full h-full flex items-center justify-center">
               {shuffledProjects.map((project, index) => {
                 const col = index % gridDimensions.cols
                 const row = Math.floor(index / gridDimensions.cols)
